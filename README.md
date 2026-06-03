@@ -1,16 +1,12 @@
-# 🇮🇳 Inflation and Monetary Policy in India (2014–2025)
+# Inflation and Monetary Policy in India (2014–2025)
 ### A Quantitative Macroeconomic Analysis
 
-![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
-![SQL](https://img.shields.io/badge/SQL-BigQuery%2FMode-orange?logo=google-cloud)
-![Excel](https://img.shields.io/badge/Excel-Data%20Validation-green?logo=microsoft-excel)
-![PowerBI](https://img.shields.io/badge/PowerBI-Dashboard-yellow?logo=powerbi)
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
-This project conducts an end-to-end quantitative macroeconomic analysis of the relationship between **CPI inflation** and the **RBI repo rate** in India from 2010 to 2024.
+In this project I have conducted an end-to-end quantitative macroeconomic analysis of the relationship between **CPI inflation** and the **RBI repo rate** in India from 2014 to 2025.
 
 The analysis is structured around two distinct economic questions:
 
@@ -24,29 +20,7 @@ The analysis is structured around two distinct economic questions:
 
 ---
 
-## 🗂️ Repository Structure
-
-```
-India-Monetary-Policy-Analysis/
-│
-├── data/
-│   └── india_macro_data.csv          # Cleaned monthly CPI + Repo data (2010–2024)
-│
-├── notebooks/
-│   └── macro_analysis.ipynb          # Full Python analysis (OLS + Lag Model)
-│
-├── sql/
-│   └── sql_queries.sql               # Descriptive stats + Lagged correlation queries
-│
-├── dashboard/
-│   └── powerbi_screenshot.png        # Power BI dashboard screenshot
-│
-└── README.md
-```
-
----
-
-## 🛠️ Tool Stack
+## Tool Stack
 
 | Stage | Tool | Purpose |
 |---|---|---|
@@ -57,7 +31,7 @@ India-Monetary-Policy-Analysis/
 
 ---
 
-## 📊 Dataset
+##  Dataset
 
 | Field | Description |
 |---|---|
@@ -113,19 +87,6 @@ Visual inspection of the raw data revealed two important patterns:
 
 **This phase answers: Does a past repo rate hike reduce future inflation?**
 
-### Descriptive Statistics Query
-
-```sql
-SELECT
-    AVG(cpi_inflation)  AS avg_inflation,
-    AVG(repo_rate)      AS avg_repo,
-    MIN(cpi_inflation)  AS min_inflation,
-    MAX(cpi_inflation)  AS max_inflation,
-    MIN(repo_rate)      AS min_repo,
-    MAX(repo_rate)      AS max_repo
-FROM india_macro;
-```
-
 ### Contemporaneous Correlation
 
 ```sql
@@ -148,12 +109,12 @@ SELECT
     CORR(repo_12m_lag, cpi_inflation) AS corr_12m
 FROM (
     SELECT
-        cpi_inflation,
+        inflation,
         LAG(repo_rate, 3)  OVER (ORDER BY date) AS repo_3m_lag,
         LAG(repo_rate, 6)  OVER (ORDER BY date) AS repo_6m_lag,
         LAG(repo_rate, 9)  OVER (ORDER BY date) AS repo_9m_lag,
         LAG(repo_rate, 12) OVER (ORDER BY date) AS repo_12m_lag
-    FROM india_macro
+    FROM `india-macro-project.india_macro_data`
 ) sub;
 ```
 
@@ -268,16 +229,16 @@ print(model2.summary())
 ## 📈 Phase 4 — Power BI Dashboard
 
 The dashboard visualises:
-- CPI inflation and repo rate trends (2010–2024)
+- CPI inflation and repo rate trends (2014–2025)
 - Scatter plot: inflation vs repo rate (confirming no contemporaneous relationship)
 - Year-wise filters for regime analysis
 
 ## Dashboard
 
-### Trendlines — CPI Inflation vs Repo Rate (2010–2024)
+### Trendlines — CPI Inflation vs Repo Rate (2014–2025)
 ![Trendlines](Inflation_Repo_rate_Trendlines.png)
 
-### Scatter Plot — Inflation vs Repo Rate
+### Scatter Plot — Inflation vs Repo Rate (2014–2025)
 ![Scatter Plot](Inflation_repo_rate_Scatterplot.png)
 
 **Key Visual Insights:**
@@ -321,4 +282,4 @@ The dashboard visualises:
 
 **Sojarna Dutta**
 MA Applied Economics | Associate Analyst
-[LinkedIn](www.linkedin.com/in/sojarna-dutta-055866227) · [GitHub](https://github.com/soj-coding)
+[LinkedIn](https://www.linkedin.com/in/sojarna-dutta-055866227) · [GitHub](https://github.com/soj-coding)
