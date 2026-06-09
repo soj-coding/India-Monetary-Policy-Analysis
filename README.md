@@ -281,5 +281,4 @@ The dashboard visualises:
 ## 👤 Author
 
 **Sojarna Dutta**
-MA Applied Economics | Associate Analyst
-[LinkedIn](https://www.linkedin.com/in/sojarna-dutta-055866227) · [GitHub](https://github.com/soj-coding)
+[LinkedIn](https://www.linkedin.com/in/sojarna-dutta-055866227)· [GitHub](https://github.com/soj-coding)
