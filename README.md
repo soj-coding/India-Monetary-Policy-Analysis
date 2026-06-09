@@ -40,7 +40,7 @@ The analysis is structured around two distinct economic questions:
 | `repo_rate` | RBI Repo Rate % (Source: RBI DBIE) |
 
 - **Observations:** 142 months (after dropping 2 rows with missing values)
-- **Period:** January 2010 – December 2024
+- **Period:** January 2014 – December 2025
 - **Frequency:** Monthly
 
 **Descriptive Statistics:**
