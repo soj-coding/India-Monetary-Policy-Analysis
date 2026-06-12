@@ -1,4 +1,4 @@
-# 🇮🇳 Inflation and Monetary Policy in India (2014–2025)
+# Inflation and Monetary Policy in India (2014–2025)
 ### A Quantitative Macroeconomic Analysis
 
 
